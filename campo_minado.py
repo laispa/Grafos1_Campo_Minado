@@ -23,7 +23,7 @@ color_map = {
     4: Color.red_light
     
 }
- 
+
 
 class CampoMInado:
     #inicializa as variáveis
@@ -34,18 +34,22 @@ class CampoMInado:
         self.cols = cols
         self.board = [[0] * cols for i in range(rows)]
         self.cells = []
-        self.CreateMines()
         self.CreateBoard()
         self.visited = set()  # Declaração fora da função bfs
         self.contBomb = 1
+        self.mines = 0
 
         
     def CreateMines(self):
         #usa ramdom para criar minas em lugares "aleatórios"
-        for _ in range(self.n_mines):
+        while self.mines < self.n_mines:
             row = random.randint(0, self.rows - 1)
             col = random.randint(0, self.cols - 1)
-            self.board[row][col] = 1
+            if(self.board[row][col]==0):
+                self.board[row][col]=1
+                self.mines +=1
+
+
         
     def CreateBoard(self):
         # Cria o campo minado usando tk
@@ -63,6 +67,8 @@ class CampoMInado:
             self.cells.append(cel_list)
             
     def bfs(self, start_row, start_col):
+        self.CreateMines()
+
         queue = deque([(start_row, start_col)]) #fila, insere coluna e linha que foi clicado na fila
         while queue: 
             row, col = queue.popleft() # pega o 1 da fila, inicia com o que o jogador clicou
@@ -97,6 +103,7 @@ class CampoMInado:
                     state='disabled',
                     bg=color_map[colorNumber]
                 )  # revela as minas adjacentes
+                
                     
                     
                 
@@ -107,8 +114,8 @@ class CampoMInado:
                     if self.board[row][col] == 1:
                         self.contBomb +=1 
                         self.cells[row][col].config(text='BUM!', bg=Color.blue, state='disabled')
-                    else:
-                        self.bfs(row, col)
+                    # else:
+                    #     self.bfs(row, col)
 
 
        
@@ -120,7 +127,7 @@ class CampoMInado:
             messagebox.showinfo("Fim de jogo", "Você perdeu! Tente novamente!")
             self.revealAll() 
             messagebox.showinfo("Fim de jogo", "Bombas: " + str(self.contBomb))
-            # self.mine_field.quit() 
+            self.mine_field.quit() 
         else:
             self.bfs(row, col)
    
@@ -129,6 +136,6 @@ class CampoMInado:
     
 minefield = tk.Tk()
 minefield.title("Jogo - Campo Minado")
-bombas = 46
+bombas = 35
 campo = CampoMInado(minefield, 16, 16, bombas)
 minefield.mainloop()
