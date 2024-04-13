@@ -8,17 +8,19 @@ class Color:
     gray_light = '#CDC9C9'
     border = '#2F4F4F',
     red = '#FF0000',
+    red_light = '#ffb4a0',
+    red_m = '#FF6347'
     revealed = '#CAE1FF',
-    green = '#7CFC00',
-    yellow = '#FFFF00',
-    orange = '#FFA500',
+    green = '#ddffbd',
+    yellow = '#ffffbd',
+    orange = '#ffe8bd',
     blue = '#FF6347'
 
 color_map = {
     1: Color.green,
     2: Color.yellow,
     3: Color.orange,
-    4: Color.red
+    4: Color.red_light
     
 }
   
@@ -99,6 +101,7 @@ class CampoMInado:
                 
     def revealAll(self):
         print("Revelar todas os outros campos, incluindo as bombas")
+        
        
      
         
