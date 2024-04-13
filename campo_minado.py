@@ -13,7 +13,13 @@ class Color:
     yellow = '#FFFF00',
     orange = '#FFA500'
 
-    
+color_map = {
+    1: Color.green,
+    2: Color.yellow,
+    3: Color.orange,
+    4: Color.red
+}
+  
 
 class CampoMInado:
     #inicializa as variáveis
@@ -26,6 +32,8 @@ class CampoMInado:
         self.cells = []
         self.CreateMines()
         self.CreateBoard()
+        self.visited = set()  # Declaração fora da função bfs
+
         
     def CreateMines(self):
         #usa ramdom para criar minas em lugares "aleatórios"
@@ -50,11 +58,10 @@ class CampoMInado:
             self.cells.append(cel_list)
             
     def bfs(self, start_row, start_col):
-        visited = set() # cria visitados
         queue = deque([(start_row, start_col)]) #fila, insere coluna e linha que foi clicado na fila
         while queue: 
             row, col = queue.popleft() # pega o 1 da fila, inicia com o que o jogador clicou
-            visited.add((row, col)) # marca como visitado
+            self.visited.add((row, col)) # marca como visitado
             adjacent_mines = 0 #calculo de adjancentes da bomba
             for r in range(max(0, row - 1), min(row + 2, self.rows)):
                 for c in range(max(0, col - 1), min(col + 2, self.cols)):
@@ -71,45 +78,25 @@ class CampoMInado:
                 ) # revela as minas adjacentes
                 for r in range(max(0, row - 1), min(row + 2, self.rows)):
                     for c in range(max(0, col - 1), min(col + 2, self.cols)):
-                        if (r, c) not in visited and self.cells[r][c]['state'] != 'disabled':
+                        if (r, c) not in self.visited and self.cells[r][c]['state'] != 'disabled':
                             queue.append((r, c)) # adiciona a linha e a coluna a fila
                             print(queue)
-                            visited.add((r, c)) # adiciona a linha e coluna como visitado
+                            self.visited.add((r, c)) # adiciona a linha e coluna como visitado
             else:
-                if(adjacent_mines == 1):
-                    self.cells[row][col].config(
+                self.cells[row][col].config(
                     text=str(adjacent_mines),
                     state='disabled',
-                    bg= Color.green
-                    ) # revela as minas adjacentes
-                elif (adjacent_mines == 2):
-                    self.cells[row][col].config(
-                    text=str(adjacent_mines),
-                    state='disabled',
-                    bg= Color.yellow
-                    ) # revela as minas adjacentes
-                elif (adjacent_mines == 3):
-                    self.cells[row][col].config(
-                    text=str(adjacent_mines),
-                    state='disabled',
-                    bg= Color.orange
-                    ) # revela as minas adjacentes
-                elif (adjacent_mines == 4):
-                    self.cells[row][col].config(
-                    text=str(adjacent_mines),
-                    state='disabled',
-                    bg= Color.red
-                    ) # revela as minas adjacentes
+                    bg=color_map[adjacent_mines]
+                )  # revela as minas adjacentes
                     
                     
                 
-    def revealAll():
+    def revealAll(self):
         print("Revelar todas os outros campos, incluindo as bombas")
-        
     def reveal(self, row, col):
         if self.board[row][col] == 1:
             self.cells[row][col].config(text='BUM!', bg=Color.red, state='disabled', )
-            self.revealAll
+            self.revealAll()
             messagebox.showinfo("Fim de jogo", "Você perdeu! Tente novamente!")
             # self.mine_field.quit() 
         else:
