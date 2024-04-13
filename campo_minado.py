@@ -7,7 +7,11 @@ import random
 class Color:
     gray_light = '#CDC9C9'
     border = '#2F4F4F',
-    red = '#FF0000'
+    red = '#FF0000',
+    revealed = '#CAE1FF',
+    green = '#7CFC00',
+    yellow = '#FFFF00',
+    orange = '#FFA500'
 
     
 
@@ -57,15 +61,48 @@ class CampoMInado:
                     if self.board[r][c] == 1:
                         adjacent_mines += 1
                         
-            self.cells[row][col].config(text=str(adjacent_mines), state='disabled') # revela as minas adjacentes
+            
             print(adjacent_mines)
             if adjacent_mines == 0: # caso não tenha minas adjacentes onde o jogador clicou, a bfs continua
+                self.cells[row][col].config(
+                text=str(adjacent_mines),
+                state='disabled',
+                bg= Color.revealed
+                ) # revela as minas adjacentes
                 for r in range(max(0, row - 1), min(row + 2, self.rows)):
                     for c in range(max(0, col - 1), min(col + 2, self.cols)):
                         if (r, c) not in visited and self.cells[r][c]['state'] != 'disabled':
                             queue.append((r, c)) # adiciona a linha e a coluna a fila
                             print(queue)
                             visited.add((r, c)) # adiciona a linha e coluna como visitado
+            else:
+                if(adjacent_mines == 1):
+                    self.cells[row][col].config(
+                    text=str(adjacent_mines),
+                    state='disabled',
+                    bg= Color.green
+                    ) # revela as minas adjacentes
+                elif (adjacent_mines == 2):
+                    self.cells[row][col].config(
+                    text=str(adjacent_mines),
+                    state='disabled',
+                    bg= Color.yellow
+                    ) # revela as minas adjacentes
+                elif (adjacent_mines == 3):
+                    self.cells[row][col].config(
+                    text=str(adjacent_mines),
+                    state='disabled',
+                    bg= Color.orange
+                    ) # revela as minas adjacentes
+                elif (adjacent_mines == 4):
+                    self.cells[row][col].config(
+                    text=str(adjacent_mines),
+                    state='disabled',
+                    bg= Color.red
+                    ) # revela as minas adjacentes
+                    
+                    
+                
     def revealAll():
         print("Revelar todas os outros campos, incluindo as bombas")
         
@@ -74,7 +111,7 @@ class CampoMInado:
             self.cells[row][col].config(text='BUM!', bg=Color.red, state='disabled', )
             self.revealAll
             messagebox.showinfo("Fim de jogo", "Você perdeu! Tente novamente!")
-            self.mine_field.quit() 
+            # self.mine_field.quit() 
         else:
             self.bfs(row, col)
    
