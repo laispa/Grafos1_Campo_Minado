@@ -1,16 +1,3 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
-
-<!-- Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
- - Final  -->
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
 
 # Criação de um campo minado usando BFS
 
@@ -25,6 +12,9 @@
 ## Sobre 
 O objetivo do presente trabalho é construir um jogo Campo Minado, usando uma BFS para revelar células sem minas adjacentes.
 Como funciona o jogo: Quando o jogador clicar em alguma célula, será revelado automaticamente as células ao redor que não contém bombas, será revelado também números que indicam quantas bombas tem ao redor. O jogador deverá, com base nisso, definir suas próximas jogadas, com o objetivo de terminar o jogo sem clicar em nenhuma bomba. 
+
+Também será feito um exercício do URI, do codeforces que pode ser visto no (link)[https://codeforces.com/problemset/problem/115/A]. O objetivo do exercício é descobrir o número de grupos mínimos que podem ser formados.
+
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
