@@ -14,7 +14,7 @@ class Color:
     green = '#ddffbd',
     yellow = '#ffffbd',
     orange = '#ffe8bd',
-    blue = '#FF6347'
+    blue = '#607B8B'
 
 color_map = {
     1: Color.green,
@@ -23,7 +23,7 @@ color_map = {
     4: Color.red_light
     
 }
-  
+ 
 
 class CampoMInado:
     #inicializa as variáveis
@@ -37,6 +37,7 @@ class CampoMInado:
         self.CreateMines()
         self.CreateBoard()
         self.visited = set()  # Declaração fora da função bfs
+        self.contBomb = 1
 
         
     def CreateMines(self):
@@ -87,11 +88,11 @@ class CampoMInado:
                             print(queue)
                             self.visited.add((r, c)) # adiciona a linha e coluna como visitado
             else:
-                if(adjacent_mines > 4):
+                if(adjacent_mines > 4): 
                     colorNumber = 4
                 else:
-                    colorNumber = adjacent_mines
-                self.cells[row][col].config(
+                    colorNumber = adjacent_mines #colore números de adjacencias
+                self.cells[row][col].config( 
                     text=str(adjacent_mines),
                     state='disabled',
                     bg=color_map[colorNumber]
@@ -100,8 +101,16 @@ class CampoMInado:
                     
                 
     def revealAll(self):
-        print("Revelar todas os outros campos, incluindo as bombas")
-        
+        for row in range(self.rows):
+            for col in range(self.cols):
+                if self.cells[row][col]['state'] != 'disabled':
+                    if self.board[row][col] == 1:
+                        self.contBomb +=1 
+                        self.cells[row][col].config(text='BUM!', bg=Color.blue, state='disabled')
+                    else:
+                        self.bfs(row, col)
+
+
        
      
         
@@ -110,6 +119,7 @@ class CampoMInado:
             self.cells[row][col].config(text='BUM!', bg=Color.red, state='disabled', )
             messagebox.showinfo("Fim de jogo", "Você perdeu! Tente novamente!")
             self.revealAll() 
+            messagebox.showinfo("Fim de jogo", "Bombas: " + str(self.contBomb))
             # self.mine_field.quit() 
         else:
             self.bfs(row, col)
@@ -119,6 +129,6 @@ class CampoMInado:
     
 minefield = tk.Tk()
 minefield.title("Jogo - Campo Minado")
-
-campo = CampoMInado(minefield, 16, 16, 46)
+bombas = 46
+campo = CampoMInado(minefield, 16, 16, bombas)
 minefield.mainloop()
