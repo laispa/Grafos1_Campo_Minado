@@ -11,13 +11,15 @@ class Color:
     revealed = '#CAE1FF',
     green = '#7CFC00',
     yellow = '#FFFF00',
-    orange = '#FFA500'
+    orange = '#FFA500',
+    blue = '#FF6347'
 
 color_map = {
     1: Color.green,
     2: Color.yellow,
     3: Color.orange,
     4: Color.red
+    
 }
   
 
@@ -83,21 +85,28 @@ class CampoMInado:
                             print(queue)
                             self.visited.add((r, c)) # adiciona a linha e coluna como visitado
             else:
+                if(adjacent_mines > 4):
+                    colorNumber = 4
+                else:
+                    colorNumber = adjacent_mines
                 self.cells[row][col].config(
                     text=str(adjacent_mines),
                     state='disabled',
-                    bg=color_map[adjacent_mines]
+                    bg=color_map[colorNumber]
                 )  # revela as minas adjacentes
                     
                     
                 
     def revealAll(self):
         print("Revelar todas os outros campos, incluindo as bombas")
+       
+     
+        
     def reveal(self, row, col):
         if self.board[row][col] == 1:
             self.cells[row][col].config(text='BUM!', bg=Color.red, state='disabled', )
-            self.revealAll()
             messagebox.showinfo("Fim de jogo", "Você perdeu! Tente novamente!")
+            self.revealAll() 
             # self.mine_field.quit() 
         else:
             self.bfs(row, col)
