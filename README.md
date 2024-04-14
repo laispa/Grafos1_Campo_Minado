@@ -15,24 +15,32 @@ Como funciona o jogo: Quando o jogador clicar em alguma célula, será revelado 
 
 Também será feito um exercício do URI, do codeforces que pode ser visto no [link](https://codeforces.com/problemset/problem/115/A). O objetivo do exercício é descobrir o número de grupos mínimos que podem ser formados sem ter nenhuma hierarquia de funcionários no mesmo grupo
 
+
+
+## Link de apresentação do trabalho
+
+O vídeo de apresentação foi compartilhado no [google drive](https://drive.google.com/file/d/1W17VAPL3iBSIaQxX48n3fUl96UR7Nijk/view?usp=sharing). Por padrão, os videos ficam em baixa qualidade no google drive, para ver na resolução original é só baixar. 
+
+
+
 ## Screenshots
 
 Campo minado: 
 
-Jogo 1:
-![Jogando 1](midia/jogo1/jogando_1.png)
+- Jogo 1:
+![Jogando 1](midia/jogo1/jogando_1.png =200x)
 ![Jogando 2](midia/jogo1/jogando_2.png)
 ![Jogando 3](midia/jogo1/jogando_4.png)
 ![Perdeu o jogo](midia/jogo1/fim_de_jogo.png)
 ![Bombas reveladas ](midia/jogo1/bombas_reveladas.png)
 
-Jogo 2:
+- Jogo 2:
 ![Jogando 1](midia/jogo2/jogando_1.png)
 ![Jogando 2](midia/jogo2/jogando_2.png)
 ![Perdeu o jogo](midia/jogo2/fim_de_jogo.png)
 ![Bombas reveladas ](midia/jogo2/bombas_reveladas.png)
 
-Venceu o jogo
+- Venceu o jogo
 
 ![Venceu o jogo ](midia/venceu.png)
 
@@ -59,11 +67,4 @@ Foi usado o botão executar do vscode para iniciar o jogo
 No ubuntu pode executar o exercício seguindo os seguintes comandos:
 g++ -o ex exercicio.cpp
 ./ex < teste.txt
-
-
-
-## Link de apresentação do trabalho
-
-O vídeo de apresentação foi compartilhado no [google drive](https://drive.google.com/file/d/1W17VAPL3iBSIaQxX48n3fUl96UR7Nijk/view?usp=sharing). Por padrão, os videos ficam em baixa qualidade no google drive, para ver na resolução original é só baixar. 
-
 
