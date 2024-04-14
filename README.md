@@ -25,44 +25,43 @@ O vídeo de apresentação foi compartilhado no [google drive](https://drive.goo
 
 ## Screenshots
 
-Campo minado: 
+###  Campo minado: 
 
 
 - Jogo 1:
 
-<img src="midia/jogo1/jogando_1.png" alt="Descrição da imagem" width="200">
+<img src="midia/jogo1/jogando_1.png" alt="Jogando 1" width="300">
 
+<img src="midia/jogo1/jogando_2.png" alt="Jogando 2" width="300">
+<img src="midia/jogo1/jogando_4.png" alt="Jogando 3" width="300">
 
-![Jogando 2](midia/jogo1/jogando_2.png)
+<img src="midia/jogo1/fim_de_jogo.png" alt="Perdeu o jogo" width="300">
 
-![Jogando 3](midia/jogo1/jogando_4.png)
-
-![Perdeu o jogo](midia/jogo1/fim_de_jogo.png)
-
-![Bombas reveladas ](midia/jogo1/bombas_reveladas.png)
+<img src="midia/jogo1/bombas_reveladas.png" alt="Bombas reveladas" width="300">
 
 
 - Jogo 2:
 
-![Jogando 1](midia/jogo2/jogando_1.png)
+<img src="midia/jogo12/jogando_1.png" alt="Jogando 1" width="300">
 
-![Jogando 2](midia/jogo2/jogando_2.png)
+<img src="midia/jogo2/jogando_2.png" alt="Jogando 2" width="300">
 
-![Perdeu o jogo](midia/jogo2/fim_de_jogo.png)
+<img src="midia/jogo2/fim_de_jogo.png" alt="Perdeu o jogo" width="300">
 
-![Bombas reveladas ](midia/jogo2/bombas_reveladas.png)
+<img src="midia/jogo2/bombas_reveladas.png" alt="Bombas reveladas" width="300">
+
+
 
 
 - Venceu o jogo
 
-
-![Venceu o jogo ](midia/venceu.png)
-
+<img src="midia/venceu.png" alt="Venceu o jogo" width="200">
 
 
-Exercício aceito:
+### Exercício aceito:
 
-![Exercício resolvido ](midia/exercicio_resolvido.png)
+<img src="midia/exercicio_resolvido.png" alt="Exercício resolvido" width="300">
+
 
 
 ## Instalação para o jogo Campo Minado
