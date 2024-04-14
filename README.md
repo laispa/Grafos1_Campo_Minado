@@ -30,7 +30,8 @@ Campo minado:
 
 - Jogo 1:
 
-![Jogando 1](midia/jogo1/jogando_1.png=200x)
+<img src="midia/jogo1/jogando_1.png" alt="Descrição da imagem" width="200">
+
 
 ![Jogando 2](midia/jogo1/jogando_2.png)
 
