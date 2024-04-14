@@ -27,25 +27,40 @@ O vídeo de apresentação foi compartilhado no [google drive](https://drive.goo
 
 Campo minado: 
 
+
 - Jogo 1:
-![Jogando 1](midia/jogo1/jogando_1.png =200x)
+
+![Jogando 1](midia/jogo1/jogando_1.png=200x)
+
 ![Jogando 2](midia/jogo1/jogando_2.png)
+
 ![Jogando 3](midia/jogo1/jogando_4.png)
+
 ![Perdeu o jogo](midia/jogo1/fim_de_jogo.png)
+
 ![Bombas reveladas ](midia/jogo1/bombas_reveladas.png)
 
+
 - Jogo 2:
+
 ![Jogando 1](midia/jogo2/jogando_1.png)
+
 ![Jogando 2](midia/jogo2/jogando_2.png)
+
 ![Perdeu o jogo](midia/jogo2/fim_de_jogo.png)
+
 ![Bombas reveladas ](midia/jogo2/bombas_reveladas.png)
 
+
 - Venceu o jogo
+
 
 ![Venceu o jogo ](midia/venceu.png)
 
 
-Exercício aceito 
+
+Exercício aceito:
+
 ![Exercício resolvido ](midia/exercicio_resolvido.png)
 
 
