@@ -30,27 +30,47 @@ O vídeo de apresentação foi compartilhado no [google drive](https://drive.goo
 
 - Jogo 1:
 
-<img src="midia/jogo1/jogando_1.png" alt="Jogando 1" width="300">
+<div style="display: flex; justify-content: center;">
+    <div style="margin-right: 10px;">
+        <img src="midia/jogo1/jogando_1.png" alt="Jogando 1" width="300">
+    </div>
+    <div>
+        <img src="midia/jogo1/jogando_2.png" alt="Jogando 2" width="300">
+    </div>
+</div>
 
-<img src="midia/jogo1/jogando_2.png" alt="Jogando 2" width="300">
-<img src="midia/jogo1/jogando_4.png" alt="Jogando 3" width="300">
+<div style="display: flex; justify-content: center;">
+    <div style="margin-right: 10px;">
+        <img src="midia/jogo1/jogando_4.png" alt="Jogando 3" width="300">
+    </div>
+    <div>
+        <img src="midia/jogo1/fim_de_jogo.png" alt="Perdeu o jogo" width="300">
+    </div>
+</div>
 
-<img src="midia/jogo1/fim_de_jogo.png" alt="Perdeu o jogo" width="300">
 
 <img src="midia/jogo1/bombas_reveladas.png" alt="Bombas reveladas" width="300">
 
 
 - Jogo 2:
 
-<img src="midia/jogo12/jogando_1.png" alt="Jogando 1" width="300">
+<div style="display: flex; justify-content: center;">
+    <div style="margin-right: 10px;">
+        <img src="midia/jogo2/jogando_1.png" alt="Jogando 1" width="300">
+    </div>
+    <div>
+        <img src="midia/jogo2/jogando_2.png" alt="Jogando 2" width="300">
+    </div>
+</div>
 
-<img src="midia/jogo2/jogando_2.png" alt="Jogando 2" width="300">
-
-<img src="midia/jogo2/fim_de_jogo.png" alt="Perdeu o jogo" width="300">
-
-<img src="midia/jogo2/bombas_reveladas.png" alt="Bombas reveladas" width="300">
-
-
+<div style="display: flex; justify-content: center;">
+    <div style="margin-right: 10px;">
+        <img src="midia/jogo2/fim_de_jogo.png" alt="Perdeu o jogo" width="300">
+    </div>
+    <div>
+        <img src="midia/jogo2/bombas_reveladas.png" alt="Bombas reveladas" width="300">
+    </div>
+</div
 
 
 - Venceu o jogo
