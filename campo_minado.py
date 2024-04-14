@@ -36,8 +36,8 @@ class CampoMInado:
         self.cells = []
         self.CreateBoard()
         self.visited = set()  # Declaração fora da função bfs
-        self.contBomb = 1
         self.mines = 0
+        self.cont_reveal = 0
 
         
     def CreateMines(self):
@@ -48,6 +48,7 @@ class CampoMInado:
             if(self.board[row][col]==0):
                 self.board[row][col]=1
                 self.mines +=1
+            print("mines",self.mines)
 
 
         
@@ -66,6 +67,27 @@ class CampoMInado:
                 cel_list.append(cel)
             self.cells.append(cel_list)
             
+            
+    def reveal(self, row, col):
+        if self.board[row][col] == 1:
+            self.cells[row][col].config(text='BUM!', bg=Color.red, state='disabled', )
+            messagebox.showinfo("Fim de jogo", "Você perdeu! Tente novamente!")
+            self.revealAll() 
+            messagebox.showinfo("Fim de jogo", "Bombas: " + str(self.mines))
+            self.mine_field.quit() 
+        else:
+            self.bfs(row, col)
+            
+    def revealAll(self):
+        for row in range(self.rows):
+            for col in range(self.cols):
+                if self.cells[row][col]['state'] != 'disabled':
+                    if self.board[row][col] == 1:
+                        self.cells[row][col].config(text='BUM!', bg=Color.blue, state='disabled')
+                # else:
+                #     self.bfs(row, col)
+   
+            
     def bfs(self, start_row, start_col):
         self.CreateMines()
 
@@ -80,62 +102,49 @@ class CampoMInado:
                         adjacent_mines += 1
                         
             
-            print(adjacent_mines)
+            # print(adjacent_mines)
             if adjacent_mines == 0: # caso não tenha minas adjacentes onde o jogador clicou, a bfs continua
+                
                 self.cells[row][col].config(
                 text=str(adjacent_mines),
                 state='disabled',
                 bg= Color.revealed
                 ) # revela as minas adjacentes
+
+                self.cont_reveal +=1 # conta quantos foram revelados                
+
+
+                if(self.cont_reveal >= (self.rows * self.cols) - self.mines): # verifica se ganhou o jogo
+                    messagebox.showinfo("Fim de jogo", "Você ganhou! Nenhuma das " + str(self.mines) + " explodiram!")
+                    self.mine_field.quit() 
+
+
+                
                 for r in range(max(0, row - 1), min(row + 2, self.rows)):
                     for c in range(max(0, col - 1), min(col + 2, self.cols)):
                         if (r, c) not in self.visited and self.cells[r][c]['state'] != 'disabled':
                             queue.append((r, c)) # adiciona a linha e a coluna a fila
-                            print(queue)
                             self.visited.add((r, c)) # adiciona a linha e coluna como visitado
             else:
                 if(adjacent_mines > 4): 
                     colorNumber = 4
                 else:
                     colorNumber = adjacent_mines #colore números de adjacencias
+                    
                 self.cells[row][col].config( 
                     text=str(adjacent_mines),
                     state='disabled',
                     bg=color_map[colorNumber]
                 )  # revela as minas adjacentes
-                
-                    
-                    
-                
-    def revealAll(self):
-        for row in range(self.rows):
-            for col in range(self.cols):
-                if self.cells[row][col]['state'] != 'disabled':
-                    if self.board[row][col] == 1:
-                        self.contBomb +=1 
-                        self.cells[row][col].config(text='BUM!', bg=Color.blue, state='disabled')
-                    # else:
-                    #     self.bfs(row, col)
+                self.cont_reveal +=1 # conta quantos foram revelados                
+                if(self.cont_reveal >= (self.rows * self.cols) - self.mines): # verifica se ganhou o jogo
+                    messagebox.showinfo("Fim de jogo", "Você ganhou! Nenhuma das " + str(self.mines) + " explodiram!")
+                    self.mine_field.quit() 
 
-
-       
-     
-        
-    def reveal(self, row, col):
-        if self.board[row][col] == 1:
-            self.cells[row][col].config(text='BUM!', bg=Color.red, state='disabled', )
-            messagebox.showinfo("Fim de jogo", "Você perdeu! Tente novamente!")
-            self.revealAll() 
-            messagebox.showinfo("Fim de jogo", "Bombas: " + str(self.contBomb))
-            self.mine_field.quit() 
-        else:
-            self.bfs(row, col)
-   
-
-    
-    
 minefield = tk.Tk()
 minefield.title("Jogo - Campo Minado")
 bombas = 35
-campo = CampoMInado(minefield, 16, 16, bombas)
+row = 16
+col = 16
+campo = CampoMInado(minefield, row, col, bombas)
 minefield.mainloop()
