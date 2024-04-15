@@ -1,7 +1,7 @@
 
 # Criação de um campo minado usando BFS e resolver um exercício do juiz online 
 
-**Número da Lista**: 1<br>
+**Número da Lista**: 4<br>
 **Conteúdo da Disciplina**: Grafos 1<br>
 
 ## Alunos
